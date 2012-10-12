@@ -1,0 +1,34 @@
+﻿@model MattipleChoice.Models.PrintExamViewModel
+
+@{
+    ViewBag.Title = "Print";
+    Layout = "~/Views/Shared/_ExamPrintLayout.cshtml";
+}
+
+<h2>@Model.Exam.ExamName</h2>
+<p><small>Exam key: @Model.ExamKey</small></p>
+
+<ol>
+@foreach (var question in @Model.Questions)
+{
+    <li>
+        @question.QuestionText
+        <ol type="a">
+        @foreach (var answer in @question.Answers)
+        {
+            <li>@answer.AnswerText</li>
+        }
+        </ol>
+    </li>
+}
+</ol>
+
+<p style="page-break-before: always;">
+
+<h2>Answer key for @Model.Exam.ExamName - @Model.ExamKey</h2>
+<ol>
+@foreach (var answer in @Model.AnswerKey)
+{
+    <li>@answer</li>
+}
+</ol>

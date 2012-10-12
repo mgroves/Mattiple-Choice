@@ -1,0 +1,48 @@
+﻿@model IEnumerable<MattipleChoice.Models.Question>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Questions for Exam #@ViewBag.ExamId</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create", new { id = ViewBag.ExamId })
+</p>
+
+<p>There are @Model.Count() questions</p>
+
+<table>
+    <tr>
+        <th>
+            QuestionId
+        </th>
+        <th>
+            ExamId
+        </th>
+        <th>
+            QuestionText
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.QuestionId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ExamId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QuestionText)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.QuestionId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.QuestionId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.QuestionId })
+        </td>
+    </tr>
+}
+
+</table>

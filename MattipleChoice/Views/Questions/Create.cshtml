@@ -1,0 +1,42 @@
+﻿@model MattipleChoice.Models.QuestionViewModel
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create a Question with Answers</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(false)
+    <fieldset>
+        <legend>QuestionViewModel</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.QuestionText)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.QuestionText, new { style = "width: 100%" })
+            @Html.ValidationMessageFor(model => model.QuestionText)
+        </div>
+
+    @for (var i = 0; i < 4; i++)
+    {
+        <div class="editor-label">
+            Answer @i
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.Answers[i].AnswerText, new { style = "width: 100%" })
+            @Html.EditorFor(model => model.Answers[i].IsCorrect)
+            @Html.LabelFor(model => model.Answers[i].IsCorrect)
+        </div>
+    }
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index", new { id = ViewBag.ExamId })
+</div>
