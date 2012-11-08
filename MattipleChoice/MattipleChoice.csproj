@@ -80,6 +80,7 @@
   <ItemGroup>
     <Content Include="Content\Print.css" />
     <Content Include="Global.asax" />
+    <Content Include="Models\install.sql" />
     <Content Include="Web.config" />
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />

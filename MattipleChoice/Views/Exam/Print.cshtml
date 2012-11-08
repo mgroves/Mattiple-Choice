@@ -11,7 +11,7 @@
 <ol>
 @foreach (var question in @Model.Questions)
 {
-    <li>
+    <li style="page-break-inside: avoid;">
         @question.QuestionText
         <ol type="a">
         @foreach (var answer in @question.Answers)
